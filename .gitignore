@@ -1,2 +1,2 @@
-myapp/node_modules/
-myapp/.DS_Store
+*/node_modules/
+*.DS_Store
