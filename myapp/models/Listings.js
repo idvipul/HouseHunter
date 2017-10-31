@@ -1,17 +1,22 @@
 var db = require('../helpers/db');
 
 exports.getAllListings =function(cb) {
-	var sql = "SELECT city, state, zip" 
-	sql = "FROM listing";
-	db.runquery(sql,db);
-}
+        var sql = "SELECT * FROM listing ";
+        db.runquery(sql,cb);
+};
+
+//exports.getListingsBySearch = function (q, cb) {
+//        var sql = 'SELECT * FROM listing WHERE City like \"%$' + q + '%\" OR ';
+//	sql += 'State like \"%$' + q + '%\" OR';
+//	sql += 'Zip like \"%$' + q + '%\" '
+//        db.runquery(sql,cb);
+//};
 
 exports.getListingsBySearch = function (q, cb) {
-	var sql = "SELECT city, state, zip";
-		sql += "FROM listing";
+	var sql = "SELECT * FROM listing ";
 		sql += "WHERE ";
-		sql += "LOWER(state) LIKE LOWER('%" +q + "%') OR ";
-		sql += "zip LIKE '%" + q + "%' OR";
-		sql += "LOWER(city) LIKE LOWER('%" +q + "%')";
-	db.runquery(sql, cb);
-}
+		sql += "LOWER(State) LIKE LOWER('%" + q + "%') OR ";
+		sql += "Zip LIKE '%" + q + "%' OR ";
+		sql += "LOWER(City) LIKE LOWER('%" + q + "%')";
+	db.runquery(sql,cb);
+};

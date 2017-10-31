@@ -11,4 +11,4 @@ exports.runquery = function(sql, cb) {
 	connection.query(sql, function(err, rows, fields) {
 		cb(err, rows);
 	});
-}
+};

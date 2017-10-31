@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
 router.get('/about', function(req, res, next) {
   res.render('about/about');
 });
@@ -32,25 +27,6 @@ router.get('/about/larry', function(req, res, next) {
 
 router.get('/about/udara', function(req, res, next) {
   res.render('about/udara');
-});
-
-var listings = require('../models/Listings');
-
-router.get('/search', function(req, res, next) {
-
-//    listings.getAllListings(function(err, data) {
-//        if (err) {
-//			data = [];
-//		}
-//		res.render('search/search', { data: data });
-//	});
-
-	listings.getListingsBySearch(req.query.q, function(err, data) {
-		if (err) {
-			data = [];
-		}
-		res.render('search/search', { data: data });
-	});
 });
 
 module.exports = router;
