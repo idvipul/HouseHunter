@@ -1,8 +1,4 @@
-# csc648-fall17-teamNN
+# csc648-fall17-team02
 
-- TODO
-
-- Change the repo name to csc648-fall17-teamNN , where nn is your team number
-
-- add ALL your team members to your team's repo.
+- This is the github repo for team 2 in section 2 of CSC 648.
 
