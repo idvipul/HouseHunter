@@ -24,6 +24,7 @@
 					
 					<form action="search" method="get">
 						<input type="text" name="q" autocomplete="off"><br>
+						<br>
 						<input type="submit" value="search">
 					</form>
 
@@ -32,7 +33,13 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<br>	
-                                            
+                                  		 <% if ( data.length) { %>
+						<h4> Found <%= (data.length ) %> Results </h4>
+						<% } %>
+						 <% if (data.length== 0) { %>
+                                                <h4> No Result Found </h4>
+                                                <% } %>
+					<br>
 					<div class="table-responsive">
 						
 					<table class="table">
@@ -44,8 +51,7 @@
 						</tr>
 					</thead>
 											
-					<tbody>
-						
+					<tbody>					
 						<% for (var i = 0; i < data.length; i++) { %>					
 						<tr>
 							<td> <%= data[i].City %> </td>
@@ -53,6 +59,11 @@
 							<td> <%= data[i].Zip %> </td>
 						</tr>
 						<% } %> 
+						 <% if (data.length== 0) { %>
+                                                <tr>
+							<td colspan = 3> Invalid Search </td>
+                                                </tr>
+						<% } %>
 					</tbody>
 					</table>
 
