@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
+    <head>
+            <% include ../partials/head %>
+    </head>
+<body>
 <div class ="jambotron text-center">
 <h1> SanFrancisco State University</h1>
         <p>Software Engineering - CSC 648 </p>
         <p>Fall 2017</p>
         <p>Section 02</p>
         <p>Team 02</p>
-<body>
-
 
 <div class ="container">
 <div class="row">
 <div class ="col-sm-12">
+<hr>
 <h2> Introduction </h2>
 
 <img src="../images/img.png" height=30% width=80%>
 <p> Hi, my name is Mohan Maharjan, from Team 02. It is great pleasure to work in team.
-My main interest in computer science is being  backend developer. Regarding to my hobby, i like outdoor games such as soccer, fishing and swimming. </p>
+My main interest in computer science is being backend developer. Regarding to my hobby, i like outdoor games such as soccer, fishing and swimming. </p>
 
  </div>
 
@@ -36,6 +28,14 @@ My main interest in computer science is being  backend developer. Regarding to m
 
 <a href="../"> <button>Home </button> </a>
 <a href="udara"> <button>Next </button></a>
+
+                        <div id=footer>
+                                <% include ../partials/footer %>
+                        </div>
+
+<!--        <% include ../partials/style %>
+-->
+    <% include ../partials/plugins %>
 
 <style>
       * {
@@ -50,7 +50,11 @@ My main interest in computer science is being  backend developer. Regarding to m
         font-size: 16px;
         color: #333;
       }
-
+        #footer {
+         position:absolute;
+         bottom:0;
+         width:100%;
+        }
 </style>
 
     <!-- Optional JavaScript -->
@@ -60,3 +64,4 @@ My main interest in computer science is being  backend developer. Regarding to m
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>
+

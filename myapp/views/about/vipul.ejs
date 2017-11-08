@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> 
-</head>
+    <head>
+            <% include ../partials/head %>
+    </head>
 <body>
 
-<div class ="jambotron text-center"> 
+<div class ="jambotron text-center">
   <h1> SanFrancisco State University</h1>
-	<p>Software Engineering Class Csc 648 </p>
-	<p> Fall 2017</p>
-	<p> Section 02</p> 
+        <p>Software Engineering Class Csc 648 </p>
+        <p> Fall 2017</p>
+        <p> Section 02</p>
   <p> Team 02 </p>
 
 <hr>
@@ -22,7 +21,6 @@
 </div>
 
 <div class ="col-sm-4">
-
 <h2>  Introduction </h2>
 <p>  Hello, my name is <b>Vipul Karanjkar</b>. I'm an International Graduate Student from India. This is my first semester at SFSU, and I feel this project will be a really good experience to learn new things, and work in a team environment.
 </p>
@@ -47,6 +45,31 @@ Home
 Next
 </button>
 </a>
+                        <div id=footer>
+                                <% include ../partials/footer %>
+                        </div>
+
+    <% include ../partials/plugins %>
+<style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+        font-weight: 400;
+        font-size: 16px;
+        color: #333;
+      }
+        #footer {
+         position:absolute;
+         bottom:0;
+         width:100%;
+        }
+</style>
 
 </body>
 </html>
+

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> 
-</head>
+    <head>
+            <% include ../partials/head %>
+    </head>
 <body>
-
-<div class ="jambotron text-center"> 
+<div class ="jambotron text-center">
   <h1> San Francisco State University</h1>
-	<p>Software Engineering Class CSC 648 </p>
-	<p> Fall 2017</p>
-	<p> Section 02</p> 
- 	<p> Team 02 </p>
+        <p>Software Engineering Class CSC 648 </p>
+        <p> Fall 2017</p>
+        <p> Section 02</p>
+        <p> Team 02 </p>
 
 <hr>
 
@@ -47,10 +45,29 @@ Home </button>
 >>
 </button>
 </a>
+                        <div id=footer>
+                                <% include ../partials/footer %>
+                        </div>
+    <% include ../partials/plugins %>
+<style>
+      * {
+        margin: 0;
+        padding: 0;
+       box-sizing: border-box;
+      }
 
-
-
+      html, body {
+        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
+        font-weight: 400;
+        font-size: 16px;
+        color: #333;
+      }
+        #footer {
+         position:absolute;
+         bottom:0;
+         width:100%;
+        }
+</style>
 </body>
 </html>
-
 
