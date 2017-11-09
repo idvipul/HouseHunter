@@ -1,81 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+ <html lang="en">
   <head>
-            <% include ../partials/head %>
+        <% include ../partials/head %>
   </head>
 
-        <body>
-
-        <header>
-                <% include ../partials/header %>
+  <body>
+	<header>
+        	<% include ../partials/header %>
         </header>
-                <div class="container text-center">
-                        <div class="row">
-                                <div class="col-sm-12">
+        
+        <div class="container text-center">
+        	<div class="row">
+                	<div class="col-sm-12">
+                        	<h1> San Francisco State University</h1>
+                                <p> Software Engineering CSC 648 </p>
+                                <p> Fall 2017</p>
+                                <p> Section 02 - Team 02</p>
 
-                                        <h1> San Francisco State University</h1>
-                                        <p>Software Engineering CSC 648 </p>
-                                        <p> Fall 2017</p>
-                                        <p> Section 02 - Team 02</p>
-
-                                        <form action="search" method="get">
-                                                <input type="text" name="q" autocomplete="off"><br>
-                                                <br>
-                                                <input type="submit" value="search">
+                                	<form action="search" method="get">
+                                        	<input type="text" name="q" placeholder="Search"  autocomplete="off">
+        		                              <button class="btn btn-danger" type="submit" value="search">
+	                	                         <span class="glyphicon glyphicon-search"></span>
+                                		       </button>
                                         </form>
-
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-sm-12">
-                                        <br>
-                                                 <% if ( data.length) { %>
-                                                <h4> Found <%= (data.length ) %> Results </h4>
-                                                <% } %>
-                                                 <% if (data.length== 0) { %>
-                                                <h4> No Result Found </h4>
-                                                <% } %>
-                                        <br>
-                                        <div class="table-responsive">
-
-                                        <table class="table">
-                                        <thead>
-                                                <tr>
-                                                        <th> City</th>
-                                                        <th> State</th>
-                                                        <th> Zip code</th>
-
-                                                </tr>
-                                        </thead>
-
-                                        <tbody>
-                                                <% for (var i = 0; i < data.length; i++) { %>
-                                                <tr>
-                                                        <td> <%= data[i].City %> </td>
-                                                        <td> <%= data[i].State %> </td>
-                                                        <td> <%= data[i].Zip %> </td>
-
-                                                </tr>
-                                                <% } %>
-                                                 <% if (data.length== 0) { %>
-                                                <tr>
-                                                        <td colspan = 3> Invalid Search </td>
-                                                </tr>
-                                                <% } %>
-                                        </tbody>
-                                        </table>
-
-                                        </div>
-                                </div>
                         </div>
                 </div>
-                        <div id=footer>
-                                <% include ../partials/footer %>
+		              
+		        <div class="row">
+                        	<div class="col-sm-12">
+		                   <br>
+                                	<% if ( data.length) { %>
+                                        	<h4> Found <%= (data.length ) %> Results </h4>
+                                        <% } %>
+                                        <% if (data.length== 0) { %>
+                                                <h4> No Result Found </h4>
+                                        <% } %>
+                                   <br>
+				</div>
+			</div>
+		</div>
+
+		<% for (var i = 0; i < data.length; i++) { %>
+		<div class="row">
+    			<hr>
+       				 <div class="col-sm-5 col-xs-5 col-md-5 col-lg-5">
+         			     <img src="https://sfsuse.com/fa17g02/images/<%= data[i].Image %>.jpg" class="img-responsive center-block" style="width:200px;height:150px;" />
+       				 </div>
+       				 <div class="col-sm-7 col-xs-7 col-md-7 col-lg-7">
+	 				 <ul style="list-style-type:none">
+	   					 <li> <b> City: </b> <%= data[i].City %> </li>
+	   					 <li> <b> State: </b> <%= data[i].State %> </li>
+	   					 <li> <b> Zip: </b> <%= data[i].Zip %> </li>
+   	 				 </ul>
+       				 </div>
+   		</div>
+		<% } %>
+       
+                <% if (data.length== 0) { %>
+                	<div class="text-center col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                        	Invalid Search 
                         </div>
+                <% } %>
 
-        <% include ../partials/style %>
+                <div id=footer>
+                	<% include ../partials/footer %>
+                </div>
 
-    <% include ../partials/plugins %>
-        </body>
+         <% include ../partials/style %>
+   	 <% include ../partials/plugins %>
+   </body>
 </html>
 

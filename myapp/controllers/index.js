@@ -45,6 +45,14 @@ router.get('/search', function(req, res, next) {
 //		res.render('search/search', { data: data });
 //	});
 
+
+//listings.getAllImages(function(err, data) {
+//        if (err) {
+//                      data = [];
+//              }
+//              res.render('search/search', { data: data });
+//      });
+
 	listings.getListingsBySearch(req.query.q, function(err, data) {
 		if (err) {
 			data = [];

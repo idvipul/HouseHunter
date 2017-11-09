@@ -20,3 +20,9 @@ exports.getListingsBySearch = function (q, cb) {
 		sql += "LOWER(City) LIKE LOWER('%" + q + "%')";
 	db.runquery(sql,cb);
 };
+
+//exports.getAllImages =function(cb) {
+//        var sql = "SELECT * FROM trn_image ";
+//        db.runquery(sql,cb);
+//};
+
