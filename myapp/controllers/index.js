@@ -118,4 +118,8 @@ router.get('/search', function(req, res, next) {
 	});
 });
 
+router.get('/listing/:id', function(req, res, next) {
+  res.render('search/propertyDetail');
+});
+
 module.exports = router;

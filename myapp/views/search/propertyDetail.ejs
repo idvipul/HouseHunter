@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+        <% include ../partials/head %>
+  </head>
+
+  <body>
+        <header>
+                <% include ../partials/header %>
+        </header>
+
+        <div class="container text-center">
+                <div class="row">
+                        <div class="col-sm-12">
+                                <h1> San Francisco State University</h1>
+                                <p> Software Engineering CSC 648 </p>
+                                <p> Fall 2017</p>
+                                <p> Section 02 - Team 02</p>
+			</div>
+                
+               <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" id="map">
+		</div>
+	</div>
+
+<!-- Google Map API Key= AIzaSyAi5ztmDz8Plo3g-yo4Yb8JahY8BS-xubM -->
+
+<script>
+        var map;
+        var geocoder;
+        function initMap() {
+                // Set initial map options
+                var mapOptions = {
+                        center: {lat: 37.722, lng: -122.478}, // SFSU as default location
+                        zoom: 15,
+                }
+                map = new google.maps.Map(document.getElementById('map'), mapOptions);
+        
+                // Geocode and add a marker
+                geocoder = new google.maps.Geocoder();
+
+                // Geocode address string passed in from listing controller
+                geocoder.geocode( { 'address': '1630 Holloway Ave, San Francisco 94132 CA' }, function(results, status) {
+                        if(status == 'OK') {
+                                // Set center of map to geocoded location
+                                map.setCenter(results[0].geometry.location);
+        
+                                // Add marker at geocoded location
+                                var marker = new google.maps.Marker({
+                                        map: map,
+                                        position: results[0].geometry.location
+                                });
+                        }
+                        else {
+                                // Geocoding failed
+                                // Add error handling
+                        }
+                });
+        }
+</script>
+<!--    <script>
+
+      function initMap() {
+        var uluru = {lat:37.7749, lng:-122.4194};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+-->
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi5ztmDz8Plo3g-yo4Yb8JahY8BS-xubM&callback=initMap">
+    </script>
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+            <div id=footer>
+                        <% include ../partials/footer %>
+                </div>
+
+         <% include ../partials/style %>
+         <% include ../partials/plugins %>
+   </body>
+</html>
+
