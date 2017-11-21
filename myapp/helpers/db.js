@@ -13,24 +13,3 @@ exports.runquery = function(sql, cb) {
 		cb(err, rows);
 	});
 };
-
-//var dog = {
-//    img: fs.readFileSync("../public/images/downtown.jpg"),
-//    file_name: 'Dog'
-//};
- 
-//var cat = {
-//    img: fs.readFileSync("../public/images/fine_arts.jpg"),
-//    file_name: 'Cat'
-//};
- 
-//var query = connection.query('INSERT INTO trn_image SET ?', dog, function(err,
-//    result) {
-//    console.log(result);
-//});
- 
-//query = connection.query('INSERT INTO trn_image SET ?', cat, function(err,
-//    result) {
-//    console.log(result);
-//});
-

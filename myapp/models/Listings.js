@@ -17,12 +17,14 @@ exports.getListingsBySearch = function (q, cb) {
 		sql += "WHERE ";
 		sql += "LOWER(State) LIKE LOWER('%" + q + "%') OR ";
 		sql += "Zip LIKE '%" + q + "%' OR ";
+                sql += "LOWER(Address) LIKE LOWER('%" + q + "%') OR ";
 		sql += "LOWER(City) LIKE LOWER('%" + q + "%')";
 	db.runquery(sql,cb);
 };
 
-//exports.getAllImages =function(cb) {
-//        var sql = "SELECT * FROM trn_image ";
+//var postData = require('../views/sell.ejs');
+
+//exports.postListings = function (req, res, cb) {
+//  var sql = "INSERT INTO `listing`(`Address`,`City`, `State`, 'Zip') VALUES ('"+req.body.address+"','"+req.body.city+"','"+req.body.state+"',,'"+req.body.zip+"')";
 //        db.runquery(sql,cb);
 //};
-

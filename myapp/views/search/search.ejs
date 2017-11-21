@@ -46,14 +46,20 @@
        				 <div class="col-sm-5 col-xs-5 col-md-5 col-lg-5">
          			     <img src="https://sfsuse.com/fa17g02/images/<%= data[i].Image %>.jpg" class="img-responsive center-block" style="width:200px;height:150px;" />
        				 </div>
-       				 <div class="col-sm-7 col-xs-7 col-md-7 col-lg-7">
+       				 <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
 	 				 <ul style="list-style-type:none">
-	   					 <li> <b> City: </b> <%= data[i].City %> </li>
-	   					 <li> <b> State: </b> <%= data[i].State %> </li>
-	   					 <li> <b> Zip: </b> <%= data[i].Zip %> </li>
-   	 				 </ul>
-       				 </div>
-   		</div>
+			                         <li id="address" name="address"> <b> Address: </b> <%= data[i].Address %> </li>
+	   					 <li id="city"> <b> City: </b> <%= data[i].City %> </li>
+	   					 <li id="state"> <b> State: </b> <%= data[i].State %> </li>
+	   					 <li id="zip"> <b> Zip: </b> <%= data[i].Zip %> </li>
+					 </ul>
+			
+	<!--				 <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4" id="map">
+				</div>
+	-->
+                                        <a href="/listing/<%= data[i].id %>" class="btn btn-primary" >View Property</a>
+       				 </div>                                       
+		</div>
 		<% } %>
        
                 <% if (data.length== 0) { %>
@@ -61,8 +67,72 @@
                         	Invalid Search 
                         </div>
                 <% } %>
+    
+<!-- Google Map API Key= AIzaSyAi5ztmDz8Plo3g-yo4Yb8JahY8BS-xubM -->
 
-                <div id=footer>
+<script>
+	var map;
+	var geocoder;
+	function initMap() {
+		// Set initial map options
+		var mapOptions = {
+			center: {lat: 37.722, lng: -122.478}, // SFSU as default location
+			zoom: 15,
+		}
+		map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	
+		// Geocode and add a marker
+		geocoder = new google.maps.Geocoder();
+
+		// Geocode address string passed in from listing controller
+		geocoder.geocode( { 'address': '1630 Holloway Ave, San Francisco 94132 CA' }, function(results, status) {
+			if(status == 'OK') {
+				// Set center of map to geocoded location
+				map.setCenter(results[0].geometry.location);
+	
+				// Add marker at geocoded location
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location
+				});
+			}
+			else {
+				// Geocoding failed
+				// Add error handling
+			}
+		});
+	}
+</script>
+
+<!--    <script>
+
+      function initMap() {
+        var uluru = {lat:37.7749, lng:-122.4194};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+-->
+
+<!--    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAi5ztmDz8Plo3g-yo4Yb8JahY8BS-xubM&callback=initMap">
+    </script>
+
+    <style>
+       #map {
+        height: 150px;
+        width: 100%;
+       }
+    </style>
+
+-->
+            <div id=footer>
                 	<% include ../partials/footer %>
                 </div>
 
