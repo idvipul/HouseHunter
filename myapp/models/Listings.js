@@ -22,11 +22,11 @@ exports.getListingsBySearch = function (q, cb) {
 	db.runquery(sql,cb);
 };
 
-//exports.getlistingDetails = function (req, res, cb) {
-//        var sql = "SELECT Address, City, State, Zip  FROM listing ";
-//                sql += "WHERE id = req.params.id";
-//        db.runquery(sql,cb);
-//};
+exports.getlistingDetails = function (q, cb) {
+        var sql = "SELECT Address, City, State, Zip  FROM listing ";
+                sql += "WHERE id = '"+q+"'";
+        db.runquery(sql,cb);
+};
 
 //var postData = require('../views/sell.ejs');
 

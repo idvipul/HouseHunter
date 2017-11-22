@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
                 if (err) {
                         data = [];
                 }
+//	res.json( {data: data} );
                 res.render('search/search', { data: data });
         });
 });

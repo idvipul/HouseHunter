@@ -18,36 +18,46 @@
                                 <p> Section 02 - Team 02</p>
 			</div>
                </div>
+	</div>
 
 	       <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
 
-<!-- get address in this form 1600 Holloway Avenue, San Francisco 94132 CA' and get id=address
--->
+<!-- get address in this form 1600 Holloway Avenue, San Francisco 94132 CA' and get id=address -->
+                                   <br>
+                <% for (var i = 0; i < data.length; i++) { %>
+                <div class="row">
+                        <hr>
+                                 <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+                                    <p name="address" id="address"> <b> Address: </b> <%= data[i].Address %>, <%= data[i].City %>, <%= data[i].State %>, <%= data[i].Zip %> </p>
+                                 </div>
+                </div>
+                <% } %>
 
-<!--		      <input id="address" type="textbox" value="San Francisco, CA"> -->
-	    <!--      <input id="submit" type="button" value="Geocode">
-	-->    </div>
+                <% if (data.length== 0) { %>
+                        <div class="text-center col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                               <b> Invalid Search </b> <br>
+				<b> SFSU - Default Location </b>
+                        </div>
+                <% } %>
+
+	    </div>
+
 	       <div id="map"></div>
-
-	</div>
 
 <!-- Google Map API Key= AIzaSyAi5ztmDz8Plo3g-yo4Yb8JahY8BS-xubM -->
 
 <script>
 function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: 37.722, lng: -122.478}
+          zoom: 10,
+          center: {lat: 37.7219, lng: -122.4782}
         });
         var geocoder = new google.maps.Geocoder();
-
-       // document.getElementById('submit').addEventListener('click', function() {
-       //   geocodeAddress(geocoder, map);
-       // });
       }
 
       function geocodeAddress(geocoder, resultsMap) {
         var address = document.getElementById('address').value;
+//        var address = data[i].Address + ' , ' + data[i].City + ' , ' + data[i].State + ' , ' + data[i].Zip;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);

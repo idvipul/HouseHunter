@@ -3,7 +3,7 @@ var router = express.Router();
 var listings = require('../models/Listings');
 
 // using multer
-var multer  = require('multer');
+var multer = require('multer');
 
 var upload = multer({ dest: 'public/images/' });
 
@@ -24,7 +24,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function (req, res) {
    var postData  = req.body;
-   res.json(req.body);
+     res.json(req.body.address+','+req.body.city+','+req.body.state+','+ req.body.zip);
+//   res.json(req.body);
 
 //   listings.postListings(function(err, data) {
 //      if (err) {
@@ -35,17 +36,17 @@ router.post('/', function (req, res) {
 
 });
 
-/*
-router.post('/sell', upload.single('myimage'), function(req, res, next) {
-    res.json(req.files);
-});
+//router.post('/', upload.single('myimage'), function(req, res, next) {
+//    res.json(req.files);
+//});
 
+/*
  using file-upload
 var fileUpload = require('express-fileupload');
 
 router.use(fileUpload());
 
-router.post('/sell', function(req, res) {
+router.post('/', function(req, res) {
   if (!req.files) {
     return res.status(400).send('No files were uploaded.');
         } else {
