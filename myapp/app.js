@@ -7,6 +7,10 @@ var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
  
 var index = require('./controllers');
+var about = require('./controllers/about');
+var search = require('./controllers/search');
+var sell = require('./controllers/sell');
+var listing = require('./controllers/listing');
 
 var app = express();
 
@@ -25,6 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload({ limits: {fileSize: 50 * 1024 * 1024}}));
 
 app.use('/', index);
+app.use('/about', about);
+app.use('/search', search);
+app.use('/sell', sell);
+app.use('/listing', listing);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
