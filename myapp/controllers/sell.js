@@ -23,9 +23,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res) {
-    var postData = req.body;
-    res.json(req.body.address + ',' + req.body.city + ',' + req.body.state + ',' + req.body.zip);
-//   res.json(req.body);
+//    var postData = req.body;
+//    res.json(req.body.address + ',' + req.body.city + ',' + req.body.state + ',' + req.body.zip);
+   res.json(req.body);
 
 //   listings.postListings(function(err, data) {
 //      if (err) {
@@ -39,6 +39,7 @@ router.post('/', function (req, res) {
 //router.post('/', upload.single('myimage'), function(req, res, next) {
 //    res.json(req.files);
 //});
+
 
 /*
  using file-upload
