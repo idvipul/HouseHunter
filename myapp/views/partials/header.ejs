@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -5,12 +6,127 @@
     </div>
     <ul class="nav navbar-nav">
           <li><a href="https://sfsuse.com/fa17g02/about">About Us</a></li>
-          <li><a href="https://sfsuse.com/fa17g02/sell"> SELL </a></li>
+          <li><a href="https://sfsuse.com/fa17g02/sell"> Sell </a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In </a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Join </a></li>
+      <li><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+      <li><a data-toggle="modal" data-target="#joinModal"><span class="glyphicon glyphicon-log-in"></span> Register</a></li>   
     </ul>
   </div>
 </nav>
+
+
+
+  <!-- Login Modal Pop-up. Start-->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="modal" id="loginModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Login</h4>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <!--<label for="inputEmail"><i class="glyphicon glyphicon-user"></i> User Email</label> -->
+                    <input class="form-control" placeholder="Enter Email" type="text" id="inputEmail">
+                  </div>
+                  <div class="form-group">
+                    <!--<label for="inputPassword"><i class="glyphicon glyphicon-lock"></i> Password</label> -->
+                    <input class="form-control" placeholder="Enter Password" type="password" id="inputPassword">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary">Login</button>
+                <button class="btn btn-basic" data-dismiss="modal">Cancel</button>
+              </div>
+              </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Login Modal Pop-up End. -->
+    <!-- Register Modal Pop-up Start. -->
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="modal" id="joinModal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Register</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="firstname"><i class="glyphicon glyphicon-user"></i> First Name *</label>
+                      <input class="form-control" placeholder="Enter First Name" type="text" id="firstname">
+                    </div>
+                    <div class="form-group">
+                      <label for="lastname"><i class="glyphicon glyphicon-user"></i> Last Name *</label>
+                      <input class="form-control" placeholder="Enter Last Name" type="text" id="lastname">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputNewEmail"><i class="glyphicon glyphicon-envelope"></i> Email *</label>
+                      <input class="form-control" placeholder="Enter Email" type="text" id="inputNewEmail">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputNewPassword"><i class="glyphicon glyphicon-lock"></i> Password *</label>
+                      <input class="form-control" placeholder="Enter Password" type="password" id="inputNewPassword">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputNewPassword2"><i class="glyphicon glyphicon-lock"></i> Confirm Password *</label>
+                      <input class="form-control" placeholder="Confirm Password" type="password" id="inputNewPassword2">
+                    </div>
+                    <div class="form-group">
+                      <label for="Phonenumber"><i class="glyphicon glyphicon-earphone"></i> Phone Number</label>
+                      <input class="form-control" placeholder="Enter Phone Number" type="text" id="Phonenumber">
+
+                      <div class="checkbox">
+                        <label>
+                          <input class="check_list" name="check_list[]" type="checkbox">
+                          Buyer Account
+                        </label>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input class="check_list" name="check_list[]" type="checkbox">
+                          Seller Account
+                        </label>
+                      </div>
+                      <p> Required Fields *</p>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <div class="checkbox">
+                    <label>
+                      <input class="check_list" name="check_list[]" type="checkbox">
+                      I accept the Terms and Conditions
+                    </label>
+                  </div>
+                  <button class="btn btn-primary">Register</button>
+                  <button class="btn btn-basic" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Register Modal Pop-up. End -->
+
+
 
