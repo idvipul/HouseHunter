@@ -27,8 +27,8 @@
                         <div class="col-sm-12">
 
                 <% for (var i = 0; i < data.length; i++) { %>
-                  <div class="row" name="address" id="address">
-                      <p> <b> Address: </b> <%= data[i].Address %>, <%= data[i].City %>, <%= data[i].Zip %>, <%= data[i].State %> </p>
+                  <div class="row">
+                      <p id="address"> <b> Address: </b> <%= data[i].Address %>, <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p>
                   </div>
                 <% } %>
 
@@ -46,17 +46,34 @@
 	</div>
 
 <script>
-    function initMap() {
-        var startLatLng = {lat:37.7749, lng:-122.4194};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: startLatLng
-        });
-        var marker = new google.maps.Marker({
-          position: startLatLng,
-          map: map
-        });
-    }
+                        function initMap()
+                        {
+                            var map      = new google.maps.Map(document.getElementById('map'), {
+                                zoom  : 14,
+                                center: {lat: 37.7749, lng: -122.4194}
+                            });
+                            var geocoder = new google.maps.Geocoder();
+                            geocodeAddress(geocoder, map)
+                        }
+                        function geocodeAddress(geocoder, resultsMap)
+                        {
+    <% for (var i = 0; i < data.length; i++) { %>
+    geocoder.geocode( { 'address': '<%= data[i].Address %>, <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %>'}, function(results, status) {
+                              if (status === 'OK')
+                                {
+                                    resultsMap.setCenter(results[0].geometry.location);
+                                    var marker = new google.maps.Marker({
+                                        map     : resultsMap,
+                                        position: results[0].geometry.location
+                                             });
+                                } else
+                                {
+                                    alert('Geocode was not successful for the following reason: ' + status);
+                                }
+                            });
+      <% } %>
+
+                        }
 </script>
 
     <script async defer
