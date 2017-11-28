@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-        <% include partials/head %> 
+<head>
+    <% include partials/head %>
 
-  </head>
+</head>
 
-  <body>
-        <header>
-                <% include partials/header %>
-        </header>
+<body>
+<header>
+    <% include partials/header %>
+</header>
 
 <h1> Post your property for Sale </h1>
 
-    <form method="post" enctype="multipart/form-data"> 
+<form method="post" enctype="multipart/form-data">
 
-        <label for="address"> Street Address:</label>
-        <input type="text" id="address" name="address" placeholder="1600, Holloway Avenue" required />
+    <label for="address"> Street Address:</label>
+    <input type="text" id="address" name="address" placeholder="1600, Holloway Avenue" required/>
     <br><br>
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" placeholder="San Francisco" required />
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" placeholder="San Francisco" required/>
     <br><br>
-        <label for="city">State:</label>
-        <input type="text" id="state" name="state" placeholder="CA" required />
+    <label for="city">State:</label>
+    <input type="text" id="state" name="state" placeholder="CA" required/>
     <br><br>
-        <label for="city">Zip:</label>
-        <input type="text" pattern="[0-9]{5}"  id="zip" name="zip" placeholder="94132" required />
+    <label for="city">Zip:</label>
+    <input type="text" pattern="[0-9]{5}" id="zip" name="zip" placeholder="94132" required/>
     <br><br>
-        <label for="city">Property Image:</label>
-        <input type="file" id="myimage" name="myimage" required /> <br/>
-        <input type="submit" name="submit" value="Submit" />
-    </form>  
+    <label for="city">Property Image:</label>
+    <input type="file" id="myimage" name="myimage" required/> <br/>
+    <input type="submit" name="submit" value="Submit"/>
+</form>
 
 <!--
     <form method='get' action="sell">
@@ -44,8 +44,8 @@
     <% include partials/footer %>
 </div>
 
-        <% include partials/style %>
-        <% include partials/plugins %>
+<% include partials/style %>
+<% include partials/plugins %>
 
- </body>
+</body>
 </html>

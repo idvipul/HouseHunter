@@ -5,7 +5,7 @@ var listings = require('../models/Listings');
 // using multer
 var multer = require('multer');
 
-var upload = multer({ dest: 'public/images/' });
+var upload = multer({dest: 'public/images/'});
 
 //var storage = multer.diskStorage({
 //      destination: function (req, file, cb) {
@@ -18,13 +18,13 @@ var upload = multer({ dest: 'public/images/' });
 
 //var upload = multer({ storage:storage});
 
-router.get('/', function(req, res, next) {
-  res.render('sell');
+router.get('/', function (req, res, next) {
+    res.render('sell');
 });
 
 router.post('/', function (req, res) {
-   var postData  = req.body;
-     res.json(req.body.address+','+req.body.city+','+req.body.state+','+ req.body.zip);
+    var postData = req.body;
+    res.json(req.body.address + ',' + req.body.city + ',' + req.body.state + ',' + req.body.zip);
 //   res.json(req.body);
 
 //   listings.postListings(function(err, data) {
@@ -70,5 +70,5 @@ router.post('/', function(req, res) {
 }
 });
 */
-                                                                                        
+
 module.exports = router;

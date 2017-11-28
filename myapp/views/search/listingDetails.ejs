@@ -1,91 +1,89 @@
 <!DOCTYPE html>
- <html lang="en">
-  <head>
-        <% include ../partials/head %>
-  </head>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
 
-  <body>
-        <header>
-                <% include ../partials/header %>
-        </header>
+<body>
+<header>
+    <% include ../partials/header %>
+</header>
 
-        <div class="container text-center">
-                <div class="row">
-                        <div class="col-sm-12">
-                                <h1> San Francisco State University</h1>
-                                <p> Software Engineering CSC 648 </p>
-                                <p> Fall 2017</p>
-                                <p> Section 02 - Team 02</p>
-			</div>
-               </div>
-	</div> 
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1> San Francisco State University</h1>
+            <p> Software Engineering CSC 648 </p>
+            <p> Fall 2017</p>
+            <p> Section 02 - Team 02</p>
+        </div>
+    </div>
+</div>
 
 <hr>
-	      
-        <div class="container text-center">
-                <div class="row">
-                        <div class="col-sm-12">
 
-                <% for (var i = 0; i < data.length; i++) { %>
-                  <div class="row">
-                      <p id="address"> <b> Address: </b> <%= data[i].Address %>, <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p>
-                  </div>
-                <% } %>
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-12">
 
-                <% if (data.length== 0) { %>
-		  <div class="row">			
-                               <b> Invalid Search </b> <br>
-				<b> SFSU - Default Location </b>
-                  </div>
-                <% } %>
+            <% for (var i = 0; i < data.length; i++) { %>
+            <div class="row">
+                <p id="address"><b> Address: </b> <%= data[i].Address %>
+                    , <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p>
+            </div>
+            <% } %>
 
-	    	</div>
-<br> <br> <br>
-	       	<div id="map"></div>
-		</div>
-	</div>
+            <% if (data.length == 0) { %>
+            <div class="row">
+                <b> Invalid Search </b> <br>
+                <b> SFSU - Default Location </b>
+            </div>
+            <% } %>
+
+        </div>
+        <br> <br> <br>
+        <div id="map"></div>
+    </div>
+</div>
 
 <script>
-                        function initMap()
-                        {
-                            var map      = new google.maps.Map(document.getElementById('map'), {
-                                zoom  : 14,
-                                center: {lat: 37.7749, lng: -122.4194}
-                            });
-                            var geocoder = new google.maps.Geocoder();
-                            geocodeAddress(geocoder, map)
-                        }
-                        function geocodeAddress(geocoder, resultsMap)
-                        {
-    <% for (var i = 0; i < data.length; i++) { %>
-    geocoder.geocode( { 'address': '<%= data[i].Address %>, <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %>'}, function(results, status) {
-                              if (status === 'OK')
-                                {
-                                    resultsMap.setCenter(results[0].geometry.location);
-                                    var marker = new google.maps.Marker({
-                                        map     : resultsMap,
-                                        position: results[0].geometry.location
-                                             });
-                                } else
-                                {
-                                    alert('Geocode was not successful for the following reason: ' + status);
-                                }
-                            });
-      <% } %>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 14,
+            center: {lat: 37.7749, lng: -122.4194}
+        });
+        var geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map)
+    }
 
-                        }
+    function geocodeAddress(geocoder, resultsMap) {
+        <% for (var i = 0; i < data.length; i++) { %>
+        geocoder.geocode({'address': '<%= data[i].Address %>, <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %>'}, function (results, status) {
+            if (status === 'OK') {
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+        <% } %>
+
+    }
 </script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAehS__N7Fe6CJQo43l90_fgRMsLzR7uUo&callback=initMap">
-    </script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAehS__N7Fe6CJQo43l90_fgRMsLzR7uUo&callback=initMap">
+</script>
 
-            <div id=footer>
-                        <% include ../partials/footer %>
-                </div>
+<div id=footer>
+    <% include ../partials/footer %>
+</div>
 
-         <% include ../partials/style %>
-         <% include ../partials/plugins %>
-   </body>
+<% include ../partials/style %>
+<% include ../partials/plugins %>
+</body>
 </html>
 
