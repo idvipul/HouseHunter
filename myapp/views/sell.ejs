@@ -12,8 +12,9 @@
 </header>
 
 <h1> Post your property for Sale </h1>
+ 
+<form method="post" action="sell" enctype="multipart/form-data" >
 
-<form method="post" enctype="multipart/form-data">
 
     <label for="address"> Street Address:</label>
     <input type="text" id="address" name="address" placeholder="1600, Holloway Avenue" required/>
@@ -21,24 +22,16 @@
     <label for="city">City:</label>
     <input type="text" id="city" name="city" placeholder="San Francisco" required/>
     <br><br>
-    <label for="city">State:</label>
+    <label for="state">State:</label>
     <input type="text" id="state" name="state" placeholder="CA" required/>
     <br><br>
-    <label for="city">Zip:</label>
+    <label for="zip">Zip:</label>
     <input type="text" pattern="[0-9]{5}" id="zip" name="zip" placeholder="94132" required/>
     <br><br>
-    <label for="city">Property Image:</label>
-    <input type="file" id="myimage" name="myimage" required/> <br/>
+    <label for="filetoupload">Property Image:</label>
+    <input type="file" id="filetoupload" name="filetoupload" required/> <br/>
     <input type="submit" name="submit" value="Submit"/>
 </form>
-
-<!--
-    <form method='get' action="sell">
-    <form encType="multipart/form-data" method='post' action="sell"> 
-        <input type="file" name="sampleFile" />
-        <input type='submit' value='Upload!' />
-    </form>     
--->
 
 <div id="footer">
     <% include partials/footer %>

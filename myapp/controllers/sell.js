@@ -1,57 +1,26 @@
 var express = require('express');
 var router = express.Router();
-var listings = require('../models/Listings');
-
-// using multer
-var multer = require('multer');
-
-var upload = multer({dest: 'public/images/'});
-
-//var storage = multer.diskStorage({
-//      destination: function (req, file, cb) {
-//              cb(null,'public/images/')
-//      },
-//      filename: function (req, file, cb) {
-//              cb(null,Date.now() + file.originalname );
-//      }
-//});
-
-//var upload = multer({ storage:storage});
+var formidable = require('formidable');
+var fs = require('fs');
 
 router.get('/', function (req, res, next) {
     res.render('sell');
 });
 
 router.post('/', function (req, res) {
-//    var postData = req.body;
-//    res.json(req.body.address + ',' + req.body.city + ',' + req.body.state + ',' + req.body.zip);
-   res.json(req.body);
-
-//   listings.postListings(function(err, data) {
-//      if (err) {
-//            data = [];
-//        }
-//        res.render('sell', { data: data });
-//    });
-
+	var form = new formidable.IncomingForm();
+    	form.parse(req, function (err, fields, files) {
+    	res.send(fields.address + ',' + fields.city + ',' + fields.state + ',' + fields.zip + ',' + files.filetoupload.name + ',' + files.filetoupload.path);
+	var oldpath = files.filetoupload.path;
+	var newpath = "public/images/" + files.filetoupload.name;
+	fs.rename(oldpath, newpath, function (err) {
+        	if (err) throw err;
+      		});
+	});
+	
 });
 
-//router.post('/', upload.single('myimage'), function(req, res, next) {
-//    res.json(req.files);
-//});
-
-
 /*
- using file-upload
-var fileUpload = require('express-fileupload');
-
-router.use(fileUpload());
-
-router.post('/', function(req, res) {
-  if (!req.files) {
-    return res.status(400).send('No files were uploaded.');
-        } else {
-  // The name of the input field (i.e. "file") is used to retrieve the uploaded file
   var file = req.files.file;
   var extension = path.extname(file.name);
 
@@ -69,7 +38,6 @@ router.post('/', function(req, res) {
   });
         }
 }
-});
 */
 
 module.exports = router;
