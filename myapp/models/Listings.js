@@ -5,13 +5,6 @@ exports.getAllListings = function (cb) {
     db.runquery(sql, cb);
 };
 
-//exports.getListingsBySearch = function (q, cb) {
-//        var sql = 'SELECT * FROM listing WHERE City like \"%$' + q + '%\" OR ';
-//	sql += 'State like \"%$' + q + '%\" OR';
-//	sql += 'Zip like \"%$' + q + '%\" '
-//        db.runquery(sql,cb);
-//};
-
 exports.getListingsBySearch = function (q, cb) {
     var sql = "SELECT * FROM listing ";
     sql += "WHERE ";

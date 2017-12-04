@@ -1,65 +1,134 @@
 <style>
 
-    * {
-        margin: 0;
+  * {
+	margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }
+  }
 
-    html, body {
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
-        font-weight: 400;
-        font-size: 16px;
-        color: #333;
-    }
+  .navbar-text{
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
 
-    h2 {
-        position: absolute;
-        top: 200px;
-        left: 0;
-        width: 100%;
-    }
+  .navbar-brand{
+        font-size: 25px;
+  }
+  .navbar-inverse{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    border-radius:0px;
+  }
 
-    img {
+  .navbar-nav {
+    font-size: 18px;
+  }
+
+  .navbar-right{
+    font-size: 18px;
+  }
+
+  .modal-header {
+        background-color: #428bca;
+  }
+
+  .modal-title {
+        font-size: 175%;
+        font-weight: bold;
+        text-align: center;
+  }
+
+  .navbar.header {
+	color:#333;
+  }
+
+  .navbar-default.navbar-fixed-bottom.footer {
+        text-align:left;
+        font:bold 16px sans-serif;
+        padding:10px 10px;
+        margin-top:80px;
+        bottom:0;
+        color:#333;
+  }
+
+  #house {
+	text-align:center;
+	padding:40px;
+	padding-top:200px;
+	padding-bottom:140px;
+        margin-top:-20px;
+	background:url(https://sfsuse.com/fa17g02/images/Real-Estate-Housing.jpg) no-repeat;
+	background-size:cover;
+	background-position:50% 20%;
+  }
+
+  #house h1 {
+        color:white;
+        font-size:60px;
+        text-shadow:2px 2px 4px #000000;
+  }
+
+  #house p {
+        max-width:800px;
+        font-size:25px;
+        margin:0 auto;
+        color:white;
+        text-shadow:2px 2px 4px #000000;
+  }
+
+  .search div.input-group-btn button {
+	background:#003459;
+	color:#ffffff;
+	border-color:#6caee0;
+	outline:none;
+  }
+
+  img {
         background-image: url(pic_1.jpg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         width: 100%;
         height: 100%;
-    }
+  }
 
-    tr {
-        width: 100%;
-        display: inline-table;
-        table-layout: fixed;
-    }
+  #featuredHouses {
+        margin-top:20px;
+  }
 
-    table {
+  #featuredHouses h3{
+        text-align:center;
+  }
+
+  #featuredHouses .thumbnail {
+        margin-top:50px;
+  }
+
+  #featuredHouses img{
+	margin:auto;
+	width:330px;
+	min-width:100px;
+	min-height:100px;
+	height:220px;
+        margin-bottom:20px;
+  }
+
+  #emp {
+        margin-top:60px;
+  }
+
+  #map {
+        margin-top:20px;
         height: 300px;
-        display: -moz-groupbox;
-    }
-
-    tbody {
-        overflow-y: scroll;
-        height: 200px;
         width: 100%;
-        position: absolute;
-    }
+  }
 
-    #map {
-        height: 300px;
-        width: 100%;
-    }
+  #description{
+        font-size: 20px;
+  }
 
-    .modal-header {
-        background-color: #428bca;
-    }
-
-    .modal-title {
-        font-size: 175%;
-        font-weight: bold;
-        text-align: center;
-    }
 </style>
-

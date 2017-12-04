@@ -9,42 +9,36 @@
     <% include ../partials/header %>
 </header>
 
-<div class="container text-center">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1> San Francisco State University</h1>
-            <p> Software Engineering CSC 648 </p>
-            <p> Fall 2017</p>
-            <p> Section 02 - Team 02</p>
-        </div>
-    </div>
-</div>
+ <a class="btn btn-info" role="button" href="https://sfsuse.com/fa17g02/search?q=">Back</a>
 
-<hr>
+ <div class="container">
+   <div class="row">
+     <div id="map" class="col-sm-10 col-xs-10 col-md-10 col-lg-10">
+     </div>
+   </div>
+ </div>
+ <hr>
 
-<div class="container text-center">
-    <div class="row">
-        <div class="col-sm-12">
+ <div class="container">
+   <div class="row">
+     <div class="col md-4 col-sm-12">
 
-            <% for (var i = 0; i < data.length; i++) { %>
-            <div class="row">
-                <p id="address"><b> Address: </b> <%= data[i].Address %>
-                    , <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p>
-            </div>
-            <% } %>
+       <% for (var i = 0; i < data.length; i++) { %>
+         <div class="row" id="description">
+           <p id="address"><b> Address: </b> <%= data[i].Address %>
+             , <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p>
+         </div>
+       <% } %>
 
-            <% if (data.length == 0) { %>
-            <div class="row">
-                <b> Invalid Search </b> <br>
-                <b> SFSU - Default Location </b>
-            </div>
-            <% } %>
-
-        </div>
-        <br> <br> <br>
-        <div id="map"></div>
-    </div>
-</div>
+       <% if (data.length == 0) { %>
+         <div class="row">
+           <b> Invalid Search </b> <br>
+           <b> SFSU - Default Location </b>
+         </div>
+       <% } %>
+     </div>
+   </div>
+ </div>     
 
 <script>
     function initMap() {

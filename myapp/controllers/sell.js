@@ -3,6 +3,9 @@ var router = express.Router();
 var formidable = require('formidable');
 var fs = require('fs');
 
+
+var sell = require('../models/sell');
+
 router.get('/', function (req, res, next) {
     res.render('sell');
 });
@@ -10,12 +13,24 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res) {
 	var form = new formidable.IncomingForm();
     	form.parse(req, function (err, fields, files) {
-    	res.send(fields.address + ',' + fields.city + ',' + fields.state + ',' + fields.zip + ',' + files.filetoupload.name + ',' + files.filetoupload.path);
+	//res.send(fields.address + ',' + fields.city + ',' + fields.state + ',' + fields.zip + ',' + files.filetoupload.name + ',' + files.filetoupload.path);
 	var oldpath = files.filetoupload.path;
 	var newpath = "public/images/" + files.filetoupload.name;
 	fs.rename(oldpath, newpath, function (err) {
         	if (err) throw err;
-      		});
+      	});
+	console.log(res.body)
+	//sell.postListings(res, function (err, data) {
+	
+	sell.postListings(fields.address, fields.city, fields.state, fields.zip, files.filetoupload.name, function (err, data) {
+	res.json(fields.address + ',' + fields.city + ',' + fields.state + ',' + fields.zip + ',' + files.filetoupload.name + ',' + files.filetoupload.path)
+        if (err) {
+            data = [];
+        }
+        //res.send('Uploaded Success');
+	});
+	
+
 	});
 	
 });

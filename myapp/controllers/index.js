@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var listings = require('../models/Listings');
 
-// get home page
 router.get('/', function (req, res, next) {
-    res.render('index');
+    listings.getAllListings(function (err, data) {
+        if (err) {
+            data = [];
+        }
+        res.render('index', {data: data});
+    });
 });
 
 module.exports = router;

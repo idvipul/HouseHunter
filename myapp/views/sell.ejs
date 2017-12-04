@@ -11,8 +11,56 @@
     <% include partials/header %>
 </header>
 
-<h1> Post your property for Sale </h1>
- 
+<div style="text-align: center" >
+     <h1> Post your property for Sale </h1>
+	<p class="btn btn-primary" data-toggle="modal" data-target="#UploadModal" role="button">Add Listing</p>
+</div>
+
+<!-- Login Modal Pop-up. Start-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <div class="modal" id="UploadModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Login</h4>
+                        </div>
+<form method="post" action="sell" enctype="multipart/form-data" >
+                        <div class="modal-body">
+
+
+    <label for="address"> Street Address:</label>
+    <input type="text" id="address" name="address" placeholder="1600, Holloway Avenue" required/>
+    <br><br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" placeholder="San Francisco" required/>
+    <br><br>
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state" placeholder="CA" required/>
+    <br><br>
+    <label for="zip">Zip:</label>
+    <input type="text" pattern="[0-9]{5}" id="zip" name="zip" placeholder="94132" required/>
+    <br><br>
+    <label for="filetoupload">Property Image</label>
+    <input type="file" id="filetoupload" name="filetoupload" required/> <br/>
+			</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-basic" data-dismiss="modal"> Cancel </button>
+			    <button class="btn btn-primary" name="submit" value="Submit"/> Upload </button>
+                        </div>
+</form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 
 <form method="post" action="sell" enctype="multipart/form-data" >
 
 
@@ -32,6 +80,7 @@
     <input type="file" id="filetoupload" name="filetoupload" required/> <br/>
     <input type="submit" name="submit" value="Submit"/>
 </form>
+-->
 
 <div id="footer">
     <% include partials/footer %>
