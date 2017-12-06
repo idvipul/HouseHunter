@@ -11,6 +11,8 @@ var about = require('./controllers/about');
 var search = require('./controllers/search');
 var sell = require('./controllers/sell');
 var listing = require('./controllers/listing');
+var login = require('./controllers/login');
+var signUp = require('./controllers/signUp');
 
 var app = express();
 
@@ -33,6 +35,8 @@ app.use('/about', about);
 app.use('/search', search);
 app.use('/sell', sell);
 app.use('/listing', listing);
+app.use('/login', login);
+app.use('/signUp', signUp);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

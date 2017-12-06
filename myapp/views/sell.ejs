@@ -4,6 +4,16 @@
 <head>
     <% include partials/head %>
 
+
+<style>
+
+    .panel-primary{
+      padding-top: 5%;
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+</style>
+
 </head>
 
 <body>
@@ -16,10 +26,7 @@
 	<p class="btn btn-primary" data-toggle="modal" data-target="#UploadModal" role="button">Add Listing</p>
 </div>
 
-    <div id="emp">
-    </div>
-
-<!-- Login Modal Pop-up. Start-->
+<!-- Upload Modal Pop-up. Start-->
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -29,7 +36,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Login</h4>
+                            <h4 class="modal-title">Post your property for Sale</h4>
                         </div>
 <form method="post" action="sell" enctype="multipart/form-data" >
                         <div class="modal-body">
@@ -49,10 +56,10 @@
     <br><br>
     <label for="filetoupload">Property Image</label>
     <input type="file" id="filetoupload" name="filetoupload" required/> <br/>
-			</div>
+                        </div>
                         <div class="modal-footer">
-                            <button class="btn btn-basic" data-dismiss="modal"> Cancel </button>
-			    <button class="btn btn-primary" name="submit" value="Submit"/> Upload </button>
+                            <button class="btn btn-default" style="float:left" data-dismiss="modal"> Cancel </button>
+                            <button class="btn btn-primary" name="submit" value="Submit"/> Upload </button>
                         </div>
 </form>
                     </div>
@@ -63,27 +70,91 @@
     </div>
 </div>
 
-<!-- 
-<form method="post" action="sell" enctype="multipart/form-data" >
+<!--
+<div class="panel-primary">
+  <div class="panel-heading">Post A Property Listing</div>
+  <div class="panel-body">
+  <div class ="col-md-6">
+    <form>
+      <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label">Address:</label>
+        <div class="col-sm-10">
+          <input type="address" class="form-control" id="address" placeholder="Enter Property Address" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="zipcode" class="col-sm-2 col-form-label">Zip Code:</label>
+        <div class="col-sm-10">
+          <input type="zipcode" class="form-control" id="zipcode" placeholder="Enter Zip Code" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="propertyType" class="col-sm-2 col-form-label">Property Type:</label>
+        <div class="col-sm-10">
+          <input type="PropertyType" class="form-control" id="propertyType" placeholder="Enter Property Type" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="propertyCost" class="col-sm-2 col-form-label">Property Cost:</label>
+        <div class="col-sm-10">
+          <input type="Cost" class="form-control" id="propertyCost" placeholder="Enter Property Cost" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Property Description:</label>
+        <textarea class="form-control" rows="5" id="description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Upload Image:</label>
+        <div class="input-group">
+              <span class="input-group-btn">
+                  <span class="btn btn-default btn-file">
+                      Browse… <input type="file" id="imgInp">
+                  </span>
+              </span>
+        </div>
+        <img id='img-upload'/>
+      </div>
+    </form>
+  </div>
 
-
-    <label for="address"> Street Address:</label>
-    <input type="text" id="address" name="address" placeholder="1600, Holloway Avenue" required/>
-    <br><br>
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" placeholder="San Francisco" required/>
-    <br><br>
-    <label for="state">State:</label>
-    <input type="text" id="state" name="state" placeholder="CA" required/>
-    <br><br>
-    <label for="zip">Zip:</label>
-    <input type="text" pattern="[0-9]{5}" id="zip" name="zip" placeholder="94132" required/>
-    <br><br>
-    <label for="filetoupload">Property Image:</label>
-    <input type="file" id="filetoupload" name="filetoupload" required/> <br/>
-    <input type="submit" name="submit" value="Submit"/>
-</form>
+  <div class ="col-md-6">
+    <form>
+      <div class="form-group row">
+        <label for="firstnameSeller" class="col-sm-2 col-form-label">First Name:</label>
+        <div class="col-sm-10">
+          <input type="firstnameSeller" class="form-control" id="firstnameSeller" placeholder="Enter First Name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="lastnameSeller" class="col-sm-2 col-form-label">Last Name:</label>
+        <div class="col-sm-10">
+          <input type="lastnameSeller" class="form-control" id="lastnameSeller" placeholder="Enter Last Name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="emailSeller" class="col-sm-2 col-form-label">Email:</label>
+        <div class="col-sm-10">
+          <input type="emailSeller" class="form-control" id="emailSeller" placeholder="Enter Email" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="phonenumberSeller" class="col-sm-2 col-form-label">Phone Number:</label>
+        <div class="col-sm-10">
+          <input type="phonenumberSeller" class="form-control" id="phonenumberSeller" placeholder="Enter Phone Number" required>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  <div class="panel-footer text-right">
+    <button type="button" class="btn btn-warning">Cancel</button>
+    <button type="button" class="btn btn-primary">Submit Listing</button>
+  </div>
+</div>
 -->
+    <div id="emp">
+    </div>
 
 <div id="footer">
     <% include partials/footer %>

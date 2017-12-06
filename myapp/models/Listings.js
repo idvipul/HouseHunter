@@ -16,7 +16,7 @@ exports.getListingsBySearch = function (q, cb) {
 };
 
 exports.getlistingDetails = function (q, cb) {
-    var sql = "SELECT Address, City, State, Zip  FROM listing ";
+    var sql = "SELECT * FROM listing ";
     sql += "WHERE id = '" + q + "'";
     db.runquery(sql, cb);
 };
