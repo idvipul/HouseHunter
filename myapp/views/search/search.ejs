@@ -3,16 +3,7 @@
 <head>
     <% include ../partials/head %>
 
-
 <style>
-.dropbtn {
-    background-color: violet;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
 
 .dropdown {
     position: relative;
@@ -39,8 +30,8 @@
 .dropdown a:hover {background-color: #f1f1f1}
 
 .show {display:block;}
-</style>
 
+</style>
 
 </head>
 
@@ -63,6 +54,54 @@
 
         </div>
     </div>
+
+<div class="col-sm-12">
+
+<div class="col-sm-3">
+<br>
+<h3> Filter by: </h3>
+</div>
+<div class="col-sm-3">
+<br>
+<div class="dropdown">
+<button class="dropbtn"> Range </button>
+  <select id="sortby" name="sortby" onchange="this.form.submit()">
+    <option value="None" selected="selected">--- Please select ---</option>
+    <option value="lowtoHigh" id="lowtoHigh" name="lowtoHigh">Low to High</option>
+    <option value="hightoLow" id="hightoLow" name="hightoLow">High to Low</option>
+  </select><br/>
+</div>
+</div>
+<div class="col-sm-3">
+<br>
+<div class="dropdown">
+<button onclick="Bathrooms()" class="dropbtn">Bathrooms</button>
+  <div id="BathroomsDropdown" class="dropdown-content">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4+</a>
+  </div>
+</div>
+
+
+</div>
+<div class="col-sm-3">
+<br>
+<div class="dropdown">
+<button onclick="Bedrooms()" class="dropbtn">Bedrooms</button>
+  <div id="BedroomsDropdown" class="dropdown-content">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6+</a>
+  </div>
+</div>
+
+</div>
+</div>
 
 
 <br>
@@ -100,7 +139,7 @@
             <li id="city"><b> City: </b> <%= data[i].City %> </li>
             <li id="state"><b> State: </b> <%= data[i].State %> </li>
             <li id="zip"><b> Zip: </b> <%= data[i].Zip %> </li>
-            <li id="price"><b> Price: </b> <%= data[i].Price %> </li>
+            <li id="price<%=i%>"><b> Price: </b> <%= data[i].Price %> </li>
 	    <li id="bedrooms"><b> Bedrooms: </b> <%= data[i].Bedrooms %> </li>
             <li id="bathrooms"><b> Bathrooms: </b> <%= data[i].Bathrooms %> </li>
 	</ul>
@@ -166,8 +205,70 @@
 <% include ../partials/style %>
 <% include ../partials/plugins %>
 
-<script>
 
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function Range() {
+    document.getElementById("RangeDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function Bathrooms() {
+    document.getElementById("BathroomsDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function Bedrooms() {
+    document.getElementById("BedroomsDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+</script>
+
+<!--
 <script>
 $(document).ready(function(){
     var search_text = $("#search_box").val();
@@ -190,7 +291,7 @@ $(document).ready(function(){
 });
 
 </script>
-
+-->
 
 </body>
 </html>

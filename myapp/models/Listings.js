@@ -20,10 +20,3 @@ exports.getlistingDetails = function (q, cb) {
     sql += "WHERE id = '" + q + "'";
     db.runquery(sql, cb);
 };
-
-//var postData = require('../views/sell.ejs');
-
-//exports.postListings = function (req, res, cb) {
-//  var sql = "INSERT INTO `listing`(`Address`,`City`, `State`, 'Zip') VALUES ('"+req.body.address+"','"+req.body.city+"','"+req.body.state+"',,'"+req.body.zip+"')";
-//        db.runquery(sql,cb);
-//};

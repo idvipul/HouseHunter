@@ -14,78 +14,50 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
+	<div>
 
-            <div>
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title"> Sign Up</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="firstname"><i class="glyphicon glyphicon-user"></i> First Name *</label>
-                                    <input class="form-control" placeholder="Enter First Name" type="text"
-                                           id="firstname">
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastname"><i class="glyphicon glyphicon-user"></i> Last Name *</label>
-                                    <input class="form-control" placeholder="Enter Last Name" type="text" id="lastname">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputNewEmail"><i class="glyphicon glyphicon-envelope"></i> Email
-                                        *</label>
-                                    <input class="form-control" placeholder="Enter Email" type="text"
-                                           id="inputNewEmail">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputNewPassword"><i class="glyphicon glyphicon-lock"></i> Password
-                                        *</label>
-                                    <input class="form-control" placeholder="Enter Password" type="password"
-                                           id="inputNewPassword">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputNewPassword2"><i class="glyphicon glyphicon-lock"></i> Confirm
-                                        Password *</label>
-                                    <input class="form-control" placeholder="Confirm Password" type="password"
-                                           id="inputNewPassword2">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Phonenumber"><i class="glyphicon glyphicon-earphone"></i> Phone
-                                        Number</label>
-                                    <input class="form-control" placeholder="Enter Phone Number" type="text"
-                                           id="Phonenumber">
+<div class="panel-primary">
+  <div class="panel-heading"> Sign Up</div>
 
-                                    <div class="checkbox">
-                                        <label>
-                                            <input class="check_list" name="check_list[]" type="checkbox">
-                                            Buyer Account
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input class="check_list" name="check_list[]" type="checkbox">
-                                            Seller Account
-                                        </label>
-                                    </div>
-                                    <p> Required Fields *</p>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="checkbox">
-                                <label>
-                                    <input class="check_list" name="check_list[]" type="checkbox">
-                                    I accept the Terms and Conditions
-                                </label>
-                            </div>
-                            <button class="btn btn-primary"> Sign Up </button>
-                            <button class="btn btn-default">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	<form id="signUpForm" action="signUp" method="post">
 
+  <div class="panel-body">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="firstName" type="text" class="form-control" name="firstName" placeholder="Enter First Name" required/>
+    </div><br>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Enter Last Name" required/>
+    </div><br> 
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input id="email" type="email" class="form-control" name="email" placeholder="Enter Email" required/>
+    </div><br>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="pwd" placeholder="Enter password" required/>
+    </div><br>
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="confirmPassword" type="password" class="form-control" name="pwd" placeholder="Re-enter password" required/>
+    </div><br>
+    <div class="radiobox">
+      <input id="accountType" type="radio" name="accountType" value="1" required/> Buyer
+    </div><br>
+    <div class="radiobox">
+      <input id="accountType" type="radio" name="accountType" value="2" required/> Seller
+    </div><br>
+ </div>
+  <div class="panel-footer text-right">
+<!-- input type="submit" -->
+    <button class="btn btn-primary" name="submit" value="Submit">Sign Up</button>
+  </div>
+</form>
+    <a href="login"><button type="button" class="btn btn-primary">Login </button></a>
+</div>
+
+	  </div>
         </div>
     </div>
 </div>
@@ -102,5 +74,3 @@
 
 </body>
 </html>
-~        
-
