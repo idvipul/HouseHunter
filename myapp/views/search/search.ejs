@@ -2,6 +2,46 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+
+
+<style>
+.dropbtn {
+    background-color: violet;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+
+
 </head>
 
 <body>
@@ -16,13 +56,16 @@
       <form class="search" action="search" method="get">
         <div class="input-group">
           <div class="input-group-addon"><span><i class="glyphicon glyphicon-search"></i></span></div>
-          <input class="form-control search bar" type="text" placeholder="Enter Street, City, State, or Zip" maxlength="40" name="q">
+          <input id="search_box" class="form-control search bar" type="text" placeholder="Enter Street, City, State, or Zip" maxlength="40" name="q">
           <div class="input-group-btn"><button  class="btn btn-success" type="submit">Search </button></div>
         </div>
       </form>
 
         </div>
     </div>
+
+
+<br>
 
     <div class="row">
         <div class="col-sm-12">
@@ -61,7 +104,7 @@
 	    <li id="bedrooms"><b> Bedrooms: </b> <%= data[i].Bedrooms %> </li>
             <li id="bathrooms"><b> Bathrooms: </b> <%= data[i].Bathrooms %> </li>
 	</ul>
-        <a href="/fa17g02/listing/<%= data[i].id %>" class="btn btn-primary">View Property</a>
+        <a href="/fa17g02/listing/<%= data[i].id %>" class="btn btn-primary" style="float: left">View Property</a>
     </div>
 </div>
 <% } %>
@@ -122,6 +165,33 @@
 
 <% include ../partials/style %>
 <% include ../partials/plugins %>
+
+<script>
+
+<script>
+$(document).ready(function(){
+    var search_text = $("#search_box").val();
+
+    $(".bedroom, .bathroom, .price").click(function(){
+        $("#sort-by-"+$(this).attr('class')).val($(this).val());
+        $("#sort-by-"+$(this).attr('class')).html($(this).text() + " <span class=\"caret\"></span>");
+        $.ajax({
+            type: "GET",
+            url: "search/sortByPriceBedBath?search_text="+search_text+"&sortByPrice="+$("#sort-by-price").val()+"&bedroomValue="+$("#sort-by-bedroom").val()+"&bathroomValue="+$("#sort-by-bathroom").val(),
+            contentType: "application/json",
+            success: function(response){
+                $("#searchResultsTable").html(response);
+            },
+            error: function(response){
+                alert("Filter did not work: " +response.data);
+            }
+        });
+    });
+});
+
+</script>
+
+
 </body>
 </html>
 

@@ -2,9 +2,8 @@ var express = require('express');
 var router = express.Router();
 var formidable = require('formidable');
 var fs = require('fs');
-
-
 var sell = require('../models/sell');
+var db = require('../helpers/db')
 
 router.get('/', function (req, res, next) {
     res.render('sell');
@@ -19,40 +18,14 @@ router.post('/', function (req, res) {
 	fs.rename(oldpath, newpath, function (err) {
         	if (err) throw err;
       	});
-	console.log(res.body)
-	//sell.postListings(res, function (err, data) {
-	
-	sell.postListings(fields.address, fields.city, fields.state, fields.zip, files.filetoupload.name, function (err, data) {
-	res.json(fields.address + ',' + fields.city + ',' + fields.state + ',' + fields.zip + ',' + files.filetoupload.name + ',' + files.filetoupload.path)
+	//sell.postListings(fields.price, function(err, data){
+	sell.postListings(fields.address, fields.city, fields.state, fields.zip, files.filetoupload.name,fields.price , fields.bedrooms, fields.bathrooms, function (err, data) {
         if (err) {
             data = [];
         }
-        //res.send('Uploaded Success');
-	});
-	
-
-	});
-	
+        //res.json("Upload Success")
+	res.redirect("/fa17g02/")
+	});	
 });
-
-/*
-  var file = req.files.file;
-  var extension = path.extname(file.name);
-
-        if(extension !== ".png" && extension !== ".gif" && extension !== ".jpg") {
-                res.send("Only images are allowed");
-        }else {
-
-  // Use the mv() method to place the file somewhere on your server
-  file.mv(__dirname+"public/images"+file.name, function(err) {
-    if (err) {
-      return res.status(500).send(err);
-         }else {
-    res.send('File uploaded!');
-        }
-  });
-        }
-}
-*/
-
+});
 module.exports = router;
