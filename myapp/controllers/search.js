@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 var listings = require('../models/Listings');
 
 router.get('/', function (req, res, next) {
@@ -9,8 +8,8 @@ router.get('/', function (req, res, next) {
         if (err) {
             data = [];
         }
-	//res.json({data: data});
-        res.render('search/search', {data: data});
+//	res.json({data: req.query.q});
+        res.render('search/search', {data: data, qs:req.query});
     });
 });
 
