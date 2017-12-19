@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
 var session = require('express-session');
 //var expressValidator = require('express-validator');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+//var passport = require('passport');
+//var LocalStrategy = require('passport-local').Strategy;
 
 
 var index = require('./controllers');
@@ -18,6 +18,7 @@ var sell = require('./controllers/sell');
 var listing = require('./controllers/listing');
 var login = require('./controllers/login');
 var signUp = require('./controllers/signUp');
+var agent = require('./controllers/agent');
 
 var app = express();
 
@@ -33,16 +34,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Express Session
-app.use(session({
-    secret: 'secret',
-    saveUninitialized: false,
-    resave: false
-}));
 
 // Passport init
-app.use(passport.initialize());
-app.use(passport.session());
+//app.use(passport.initialize());
+//app.use(passport.session());
 
 app.use('/', index);
 app.use('/about', about);
@@ -51,6 +46,16 @@ app.use('/sell', sell);
 app.use('/listing', listing);
 app.use('/login', login);
 app.use('/signUp', signUp);
+app.use('/agent', agent);
+
+
+app.use(session({
+  cookieName: 'househunter',
+  secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

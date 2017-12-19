@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/head %>
+
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+            table.alt tr:nth-child(even) {
+                background-color: #eee;
+            }
+            table.alt tr:nth-child(odd) {
+                background-color: #fff;
+            }            
+	</style>
+</head>
+<body>
+<header>
+    <% include partials/header %>
+</header>
+<div class="jambotron text-center">
+    <h1> Agents Dashboard</h1>
+    <hr>
+    <div class="container">
+        <div class="row">
+
+<!--
+        <% for (var i = 0; i < data.length; i++) { %>
+
+      <form class="ReplyFromAgent" action="<%= data[i].id %>"  method="post">
+        
+       <p id="description"> <b>Agent Name: </b> <%= data[i].AgentName %> </p>
+       <p id="description"> <b>User Name: </b> <%= data[i].UserName %> </p>
+
+         <input id="AgentName" class="form-control search bar" value="<%= data[i].AgentName %>" type="hidden" style="width:90px"  name="AgentName" readonly="readonly">
+    <button class="btn btn-primary" name="submit" style="float:right" value="Submit"/> Submit </button>
+      </form>
+            <% } %>
+
+-->
+        <table class="alt">
+            <tr>
+                <th>Property Posted </th>
+                <th>Query Received</th> 
+                <th>From User</th>
+                <th>Respond</th>
+            </tr>
+	<% for (var i = 0; i < data.length; i++) { %>
+            <tr>
+                <td><%= data[i].listingId %></td>
+                <td><%= data[i].Query %></td>
+                <td><%= data[i].UserName %></td>
+                <td><button class="btn btn-primary" name="submit" style="float:right" value="Submit"/> Respond </button></td>
+            </tr>
+            <% } %>
+        </table>
+            </div>
+        </div>
+    </div>
+
+<div id="emp">
+</div>
+<div id="emp">
+</div>
+<div id="footer">
+    <% include partials/footer %>
+</div>
+
+<% include partials/style %>
+<% include partials/plugins %>
+
+</body>
+</html>

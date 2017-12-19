@@ -6,12 +6,7 @@ var sell = require('../models/sell');
 var db = require('../helpers/db')
 
 router.get('/', function(req, res) {
-     if(req.isAuthenticated()) {
 	res.render('sell');
-	}
-else{
-res.redirect('https://sfsuse.com/fa17g02/login');
-}
 });
 
 //router.get('/', ensureAuthenticated, function (req, res) {
@@ -41,7 +36,7 @@ router.post('/', function (req, res) {
         if (err) {
             data = [];
         }
-        //res.json("Upload Success")
+//        res.send('Property successfully posted');
 	res.redirect("/fa17g02/")
 	});	
 });

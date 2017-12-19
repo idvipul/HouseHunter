@@ -48,54 +48,48 @@
 
 </div>
 
- <div class="container">
-   <div class="row">
-  <div class="col-sm-10 col-xs-10 col-md-10 col-lg-10">
-     </div>
-   </div>
- </div>
- <hr>
+<div class="container">
 
- <div class="container">
-   <div class="row">
-<hr>
-     <div class="col md-6 col-sm-12">
+<% for (var i = 0; i < data.length; i++) { %>
+<div class="row">
 
+    <hr>
+    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
 	<h1> House Description:</h1>
-	<br>
+        <br>
        <% for (var i = 0; i < data.length; i++) { %>
-
-         <div class="row" id="description">
+         <div id="description">
            <p id="address"><b> Address: </b> <%= data[i].Address %>
-             , <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p> 
-	   <p id="price"><b> Price: </b> <%= data[i].Price %>
+             , <%= data[i].City %> <%= data[i].Zip %> <%= data[i].State %> </p>
+           <p id="price"><b> Price: </b> <%= data[i].Price %>
            <p id="bedrooms"><b> Bedrooms: </b> <%= data[i].Bedrooms %>
            <p id="bathrooms"><b> Bathrooms: </b> <%= data[i].Bathrooms %>
-	</div>
-</div>
-	<div id="contactAgent" class="col-md-6 col-sm-12">
-	<h3> Contact Agent: </h3>
-
-      <form class="contactAgent" action="<%= data[i].id %>"  method="post">
-        <h4>Agent Name: </h4> <%= data[i].AgentName %>
-	<div class="input-group">
-         <input id="AgentName" class="form-control search bar" value="<%= data[i].AgentName %>" type="hidden" style="width:90px"  name="AgentName" readonly="readonly">
-    <br><br>
-    <label for="query"> Post your Query:</label>
-    <textarea name="Query" rows="4" cols="50" required/></textarea>
-    <br><br>
-    <button class="btn btn-primary" name="submit" value="Submit"/> Submit </button>
-        
-      </form>
-	</div>
        <% } %>
+	</div>
+    </div>
+
+    <div id="ContactAgentContainer" class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
+        <h3> Contact Agent: </h3>
+	<br>
+       <% for (var i = 0; i < data.length; i++) { %>
+      <form class="contactAgent" action="<%= data[i].id %>"  method="post">
+       <p id="description"> <b>Agent Name: </b> <%= data[i].AgentName %> </p>
+         <input id="AgentName" class="form-control search bar" value="<%= data[i].AgentName %>" type="hidden" style="width:90px"  name="AgentName" readonly="readonly">
+    <label for="query"><p id="description"> Post your Query:</label></p>
+    <textarea name="Query" rows="4" cols="50" required/>Hello, I'm interested in this property and I would like to know the further details about it.</textarea>
+    <br>
+    <button class="btn btn-primary" name="submit" style="float:right" value="Submit"/> Submit </button>
+      </form>
+        </div>
+       <% } %>
+    </div>
 </div>
+<% } %>
 </div>
 
        <% if (data.length == 0) { %>
          <div class="row">
-           <b> Invalid Listing </b> <br>
-           <b> SFSU - Default Location </b>
+           <b> Listing Not Found </b> <br>
          </div>
        <% } %>
      </div>
@@ -103,11 +97,11 @@
  </div>   
 </div>
 
-  
     <div id="emp">
     </div>
     <div id="emp">
     </div>
+
 <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -132,7 +126,6 @@
             }
         });
         <% } %>
-
     }
 </script>
 

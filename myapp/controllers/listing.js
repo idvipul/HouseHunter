@@ -16,7 +16,7 @@ router.get('/:id', function (req, res, next) {
 
 router.post('/:id', function (req, res) {
 
-res.json(req.body.AgentName);
+//res.json(req.body.AgentName);
 
 // Query: res.json(req.body.Query);
 
@@ -31,7 +31,12 @@ res.json(req.body.AgentName);
 // username--
 // listingid -- req.listing.id
 
-
+        listings.postQuery(req.body.Query, req.body.AgentName, req.params.id, 'test' , function (err, data) {
+        if (err) {
+            data = [];
+        }
+        res.json("Query Inserted")
+        });
 });
 
 module.exports = router;

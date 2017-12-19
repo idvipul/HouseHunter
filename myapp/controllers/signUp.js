@@ -41,7 +41,7 @@ router.post('/', function (req, res) {
 //	res.json(results[0]);
 //	res.rediret("/fa17g02/login");
 	});
-  	res.json("SignUp Successfull");      
+  	res.json(hash);      
 //	res.redirect("/fa17g02/login")
         });
      });
