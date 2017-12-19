@@ -49,13 +49,14 @@ app.use('/signUp', signUp);
 app.use('/agent', agent);
 
 
+/*
 app.use(session({
   cookieName: 'househunter',
   secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
 }));
-
+*/
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

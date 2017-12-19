@@ -16,6 +16,13 @@ router.get('/', function (req, res, next) {
     res.render('login');
 });
 
+router.use(session({
+  cookieName: 'househunter',
+  secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+}));
+
 
 
 router.post('/', function(req, res){	
