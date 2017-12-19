@@ -5,25 +5,9 @@ var fs = require('fs');
 var sell = require('../models/sell');
 var db = require('../helpers/db')
 
-var session
+var auth = require('../middleware/auth')
 
-function ensureAuthenticated(req, res, next){
-	session = req.session
-	console.log('session= ', session);
-	if (!req.session.uid) {
-	// res.render('sell');
-		res.redirect('/fa17g02/login');
-	}
-	else {
-		next();
-	}
-	// if(req.isAuthenticated()){
-	// 	 next();
-	// } else {
-	// }
-}
-
-router.get('/', ensureAuthenticated, function(req, res) {
+router.get('/', auth.ensureAuthenticated, function(req, res) {
 	res.render('sell');
 });
 
