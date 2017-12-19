@@ -7,7 +7,7 @@ var db = require('../helpers/db')
 
 var auth = require('../middleware/auth')
 
-router.get('/', auth.ensureAuthenticated, function(req, res) {
+router.get('/', auth, function(req, res) {
 	res.render('sell');
 });
 

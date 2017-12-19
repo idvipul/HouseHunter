@@ -1,4 +1,4 @@
-function ensureAuthenticated(req, res, next){
+module.exports = (req, res, next) => {
 	session = req.session
 	if (!req.session.uid) {
 	// res.render('sell');
@@ -12,5 +12,3 @@ function ensureAuthenticated(req, res, next){
 	// } else {
 	// }
 }
-
-module.exports = ensureAuthenticated;
