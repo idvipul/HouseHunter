@@ -5,7 +5,22 @@ var fs = require('fs');
 var sell = require('../models/sell');
 var db = require('../helpers/db')
 
-router.get('/', function(req, res) {
+
+function ensureAuthenticated(req, res, next){
+	if (!req.session.id) {
+	// res.render('sell');
+		res.redirect('/fa17g02/login');
+	}
+	else {
+		next();
+	}
+	// if(req.isAuthenticated()){
+	// 	 next();
+	// } else {
+	// }
+}
+
+router.get('/', ensureAuthenticated, function(req, res) {
 	res.render('sell');
 });
 
@@ -13,14 +28,7 @@ router.get('/', function(req, res) {
 //    res.render('sell');
 //});
 
-//function ensureAuthenticated(req, res, next){
-//	if(req.isAuthenticated()){
-//	res.render('sell');
-//		 next();
-//	} else {
-//		res.redirect('/fa17g02/login');
-//	}
-//}
+
 
 router.post('/', function (req, res) {
 	var form = new formidable.IncomingForm();
