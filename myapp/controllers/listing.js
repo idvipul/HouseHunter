@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var listings = require('../models/Listings');
+var auth = require('../middleware/auth')
+
 
 router.get('/:id', function (req, res, next) {
 
@@ -14,7 +16,7 @@ router.get('/:id', function (req, res, next) {
 
 });
 
-router.post('/:id', function (req, res) {
+router.post('/:id', auth, function (req, res) {
 
 //res.json(req.body.AgentName);
 
@@ -35,7 +37,8 @@ router.post('/:id', function (req, res) {
         if (err) {
             data = [];
         }
-        res.json("Query Inserted")
+        // res.json("Query Inserted")
+        res.redirect('/')
         });
 });
 
