@@ -38,7 +38,7 @@ router.post('/:id', auth, function (req, res) {
             data = [];
         }
         // res.json("Query Inserted")
-        res.redirect('/')
+        res.redirect('/fa17g02/')
         });
 });
 
