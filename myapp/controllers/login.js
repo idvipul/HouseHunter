@@ -10,12 +10,12 @@ var db = require('../helpers/db');
 var session = require('express-session');
 const saltRounds = 10;
 
-router.use(session({
-  cookieName: 'househunter',
-  secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
-  resave: true,
-  saveUninitialized = true
-}));
+// router.use(session({
+//   cookieName: 'househunter',
+//   secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
+//   resave: true,
+//   saveUninitialized = true
+// }));
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -37,7 +37,7 @@ router.post('/', function(req, res){
 		userID = data[0];
 		//res.json(userID["id"]);
 		UID = userID["id"];
-		req.session.id = UID;
+		req.session.uid = UID;
 		//		req.session.UID = UID;
 		res.redirect('sell');
 });	
