@@ -42,4 +42,9 @@ router.post('/', function(req, res){
 		res.redirect('sell');
 });	
 });
+
+router.get('/logout', function(req, res){
+	req.session.destroy();
+	res.redirect('login');
+})
 module.exports = router;

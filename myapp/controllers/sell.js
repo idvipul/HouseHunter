@@ -10,7 +10,7 @@ var session
 function ensureAuthenticated(req, res, next){
 	session = req.session
 	console.log('session= ', session);
-	if (!req.session.id) {
+	if (!req.session.uid) {
 	// res.render('sell');
 		res.redirect('/fa17g02/login');
 	}
