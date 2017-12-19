@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var listings = require('../models/Listings');
+var auth = require('../middleware/auth')
 
-router.get('/', function (req, res, next) {
+
+router.get('/', auth, function (req, res, next) {
 
     listings.getQuery( function (err, data) {
         if (err) {
