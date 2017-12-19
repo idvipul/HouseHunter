@@ -5,8 +5,11 @@ var fs = require('fs');
 var sell = require('../models/sell');
 var db = require('../helpers/db')
 
+var session
 
 function ensureAuthenticated(req, res, next){
+	session = req.session
+	console.log('session= ', session);
 	if (!req.session.id) {
 	// res.render('sell');
 		res.redirect('/fa17g02/login');

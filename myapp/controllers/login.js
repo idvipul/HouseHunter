@@ -10,18 +10,20 @@ var db = require('../helpers/db');
 var session = require('express-session');
 const saltRounds = 10;
 
+router.use(session({
+  cookieName: 'househunter',
+  secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
+  resave: true,
+  saveUninitialized = true
+}));
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
 	
     res.render('login');
 });
 
-router.use(session({
-  cookieName: 'househunter',
-  secret: 'dsbfsdkfbsdfdshfsdhbfsdb',
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000,
-}));
+
 
 
 
