@@ -9,6 +9,7 @@
     <% include ../partials/header %>
 </header>
 
+<br>
  <a class="btn btn-info" role="button" href="https://sfsuse.com/fa17g02/search?q=">Back</a>
 
 <div class="container text-center">
@@ -47,7 +48,6 @@
 
 </div>
 
-
  <div class="container">
    <div class="row">
   <div class="col-sm-10 col-xs-10 col-md-10 col-lg-10">
@@ -72,7 +72,25 @@
            <p id="bedrooms"><b> Bedrooms: </b> <%= data[i].Bedrooms %>
            <p id="bathrooms"><b> Bathrooms: </b> <%= data[i].Bathrooms %>
 	</div>
+</div>
+	<div id="contactAgent" class="col-md-6 col-sm-12">
+	<h3> Contact Agent: </h3>
+
+      <form class="contactAgent" action="<%= data[i].id %>"  method="post">
+        <h4>Agent Name: </h4> <%= data[i].AgentName %>
+	<div class="input-group">
+         <input id="AgentName" class="form-control search bar" value="<%= data[i].AgentName %>" type="hidden" style="width:90px"  name="AgentName" readonly="readonly">
+    <br><br>
+    <label for="query"> Post your Query:</label>
+    <textarea name="Query" rows="4" cols="50" required/></textarea>
+    <br><br>
+    <button class="btn btn-primary" name="submit" value="Submit"/> Submit </button>
+        
+      </form>
+	</div>
        <% } %>
+</div>
+</div>
 
        <% if (data.length == 0) { %>
          <div class="row">
@@ -83,6 +101,8 @@
      </div>
    </div>
  </div>   
+</div>
+
   
     <div id="emp">
     </div>

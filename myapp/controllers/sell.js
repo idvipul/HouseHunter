@@ -5,9 +5,27 @@ var fs = require('fs');
 var sell = require('../models/sell');
 var db = require('../helpers/db')
 
-router.get('/', function (req, res, next) {
-    res.render('sell');
+router.get('/', function(req, res) {
+     if(req.isAuthenticated()) {
+	res.render('sell');
+	}
+else{
+res.redirect('https://sfsuse.com/fa17g02/login');
+}
 });
+
+//router.get('/', ensureAuthenticated, function (req, res) {
+//    res.render('sell');
+//});
+
+//function ensureAuthenticated(req, res, next){
+//	if(req.isAuthenticated()){
+//	res.render('sell');
+//		 next();
+//	} else {
+//		res.redirect('/fa17g02/login');
+//	}
+//}
 
 router.post('/', function (req, res) {
 	var form = new formidable.IncomingForm();

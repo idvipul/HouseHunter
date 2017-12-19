@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
+var session = require('express-session');
+//var expressValidator = require('express-validator');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 
 var index = require('./controllers');
 var about = require('./controllers/about');
@@ -28,7 +33,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use(fileUpload({limits: {fileSize: 50 * 1024 * 1024}}));
+// Express Session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: false,
+    resave: false
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/about', about);

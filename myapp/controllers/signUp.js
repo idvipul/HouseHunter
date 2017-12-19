@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var auth = require('../models/authentication');
-var db = require('../helpers/db')
+var db = require('../helpers/db');
+//var expressValidator = require('express-validator);
+var passport = require('passport');
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -33,10 +35,24 @@ router.post('/', function (req, res) {
         if (err) {
             data = [];
         }
-        res.json(req.body)
-//        res.redirect("/fa17g02/")
+	// get UserId
+	auth.getUserId(function (err, results) {
+	const user_id = result[0];
+//	res.json(results[0]);
+//	res.rediret("/fa17g02/login");
+	});
+  	res.json("SignUp Successfull");      
+//	res.redirect("/fa17g02/login")
         });
      });
+  });
+
+passport.serializeUser(function(user_id, done) {
+  done(null, user_id);
+});
+
+passport.deserializeUser(function(user_id, done) {
+    done(null, user_id);
   });
 
 module.exports = router;

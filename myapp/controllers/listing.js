@@ -14,4 +14,24 @@ router.get('/:id', function (req, res, next) {
 
 });
 
+router.post('/:id', function (req, res) {
+
+res.json(req.body.AgentName);
+
+// Query: res.json(req.body.Query);
+
+// listingId:  res.json(req.params.id);
+
+
+// <%= data[i].id %>
+
+// insert into query table
+
+// parameters: query -- req.body.qoery
+// username--
+// listingid -- req.listing.id
+
+
+});
+
 module.exports = router;
