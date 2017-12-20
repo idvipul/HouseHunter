@@ -39,7 +39,7 @@ router.post('/', function(req, res){
 		UID = userID["id"];
 		req.session.uid = UID;
 		//		req.session.UID = UID;
-		res.redirect('sell');
+		res.redirect('/fa17g02/');
 });	
 });
 
